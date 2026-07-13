@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../additional_examples/">
+        <link rel="prev" href="../optical_conductivity/">
       
       
-        <link rel="next" href="../custom_local_potential/">
+        <link rel="next" href="../../more_examples/additional_examples/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Large Systems - Quantum KITE</title>
+        <title>Spectral Function (ARPES) - Quantum KITE</title>
       
     
     
@@ -99,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graphene-lattice-with-vacancy-disorder" class="md-skip">
+        <a href="#the-single-particle-spectral-function" class="md-skip">
           Skip to content
         </a>
       
@@ -132,7 +132,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Large Systems
+              Spectral Function (ARPES)
             
           </span>
         </div>
@@ -873,8 +873,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -888,13 +890,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_13" checked>
         
           
           <label class="md-nav__link" for="__nav_3_13" id="__nav_3_13_label" tabindex="">
@@ -915,7 +915,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_13_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -933,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -961,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/graphene/" class="md-nav__link">
+      <a href="../graphene/" class="md-nav__link">
         
   
   
@@ -989,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/haldane/" class="md-nav__link">
+      <a href="../haldane/" class="md-nav__link">
         
   
   
@@ -1017,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/phosphorene/" class="md-nav__link">
+      <a href="../phosphorene/" class="md-nav__link">
         
   
   
@@ -1045,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/optical_conductivity/" class="md-nav__link">
+      <a href="../optical_conductivity/" class="md-nav__link">
         
   
   
@@ -1070,10 +1070,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../examples/spectral_function/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectral Function (ARPES)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1089,6 +1114,146 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-single-particle-spectral-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The single-particle spectral function
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The single-particle spectral function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-kite-computes-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How KITE computes it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-part-of-the-workflow-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What each part of the workflow does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-the-k-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining the k-path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-weight-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The weight parameter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-monolayer-mos2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: monolayer MoS₂
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked example: monolayer MoS₂">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lattice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lattice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-and-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings and calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1166,7 +1331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../additional_examples/" class="md-nav__link">
+      <a href="../../more_examples/additional_examples/" class="md-nav__link">
         
   
   
@@ -1199,8 +1364,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1216,11 +1379,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_15" >
         
           
           <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="">
@@ -1241,7 +1406,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_15">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1256,35 +1421,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Large Systems
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../more_examples/large_systems/" class="md-nav__link">
         
   
   
@@ -1300,46 +1440,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#graphene-lattice-with-vacancy-disorder" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphene lattice with vacancy disorder
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moire-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Moiré pattern
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1352,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../custom_local_potential/" class="md-nav__link">
+      <a href="../../more_examples/custom_local_potential/" class="md-nav__link">
         
   
   
@@ -1380,7 +1480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../paper/" class="md-nav__link">
+      <a href="../../more_examples/paper/" class="md-nav__link">
         
   
   
@@ -2168,67 +2268,172 @@
   
 
 
-  <h1>Large Systems</h1>
+  <h1>Spectral Function (ARPES)</h1>
 
-<p>So far, we have considered several examples which can be reproduced on a standard desktop computer. 
-However, the main purpose of creating KITE was to build a flexible software for systems exceeding billions of atoms (which is key to achieve high-energy resolution).
-Hence, in the following tutorial we will tackle the simulation of <strong>real-size 2D crystals</strong> with lateral dimensions in the micrometer range. </p>
-<h3 id="graphene-lattice-with-vacancy-disorder">Graphene lattice with vacancy disorder<a class="headerlink" href="#graphene-lattice-with-vacancy-disorder" title="Permanent link">&para;</a></h3>
-<p>We used KITE to simulate two disordered graphene flakes, having more than <code>8.9</code> (giant) and <code>0.5</code> (large) billion of atoms.
-The concentration of vacancy defects is <code>0.1%</code>, while the number of moments used in the calculation is <code>15000</code>.
-The two plots below show the impact of vacancy-induced zero energy modes on the average density of states (ADoS).
-The system in plot <code>a)</code> has a size of <code class="highlight"><span class="n">l1</span> <span class="o">=</span> <span class="mi">65536</span><span class="p">;</span> <span class="n">l2</span><span class="o">=</span><span class="mi">65536</span></code>, while in plot <code>b)</code> , <code class="highlight"><span class="n">l1</span> <span class="o">=</span> <span class="mi">8064</span><span class="p">;</span> <span class="n">l2</span><span class="o">=</span><span class="mi">8192</span></code>.
-The dashed curve represents the ADoS of pristine graphene and the solid curves show the ADoS of disorder graphene for different resolutions: yellow (20 meV), blue (10 meV), green (5 meV), purple (1 meV).</p>
-<p>There is an important difference in the two plots which is related to the lattice size.
-The limiting factor for observing fine details in the ADoS (and other typical KITE functions) is the mean level spacing, which is limited by the system size.
-This can be appreciated when attempting to simulate a relatively small system with a high energy resolution, as in the case of plot <code>b)</code>  with 1 meV resolution: 
-the spurious oscillations in the ADoS indicate that the discrete nature of the energy spectrum is being resolved.
-Probing a small system with high resolution can result in non-physical effects.
-Working with high resolutions (and consequently large systems) is especially important when dealing with localization and other quantum criticality problems<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.
-g
-If you would like to reproduce these results, we recommend running the script <code class="highlight"><span class="n">dos_vacancies</span><span class="o">.</span><span class="n">py</span></code> in the <a href="https://github.com/quantum-kite/kite/blob/b2b4f4d7a6ac7c912cd7fd5f23f050ec5bd3492c/examples/dos_vacancies.py">Github repository</a>.
-Note that the RAM requirements for running DOS on the large system specified above requires <code>~5GB</code> of RAM memory and around 20 minutes on a compute node with 28 cores.</p>
-<p><img alt="vacancy" src="../../../assets/images/large_systems/vacancy.png" /></p>
-<h3 id="moire-pattern">Moiré pattern<a class="headerlink" href="#moire-pattern" title="Permanent link">&para;</a></h3>
-<p>The second example is a large twisted bilayer graphene lattice in the clean limit, with the number of atoms exceeding <code>~0.7</code> billion.
-The model Hamiltonian <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> of such a system has a much larger coordination number (average number of neighbors per site). 
-The key parameter when estimating the execution time (and the memory requirements) is the "effective" size, which is the product of the number of sites and the coordination number.</p>
-<p>Depending on the rotation angle between adjacent layers, the resulting moiré pattern may strongly impact the low-energy electrons.
-For high twist angles, the two layers are effectively decoupled and the van Hove singularities (VHSs) are far from the charge neutrality point.
-As the angle is decreased, the VHSs "move" towards lower energies and eventually merge, forming flat bands.
-This phenomenon occurs for the so-called "magic" angles, which are of great interest as they provide a rich playground to study unconventional states of matter ranging from Mott insulators to superconductors.</p>
-<p>Plots <code>a)</code> and <code>b)</code> show the ADoS for rotation angles of <code>2.005</code> (low) and <code>13.741</code> (high) degrees, respectively.
-As in the previous case of disordered graphene, the finer spectral details become visible when performing computations with a good resolution. High twist angles give rise to properties more similar to Bernal-stacked bilayer graphene.
-At low angles, the spectrum is much richer, and the linear spectrum of the two layers is fully changed due to the induced Moiré pattern.
-Apart from a slight electron-hole asymmetry, at high energies, the ADoS in both cases follow that of monolayer graphene. Note the appearance of small spurious oscillations when the ADoS is reconstructed from the Chebyshev moments with too fine a broadening (1 meV).
-Interestingly, the small twist-angle system has more states in the low-energy region of the spectrum than the large-twist angle system, consistent with a smaller mean level spacing. 
-Thus, for high energy resolution (1 meV) in plot <code>b)</code> we can see the appearance of the aforementioned oscillations, while the same ADoS plot in plot <code>a)</code> looks very smooth near the charge neutrality point.
-When considering an arbitrary system, both the requested energy resolution and the system size will be reflected on the level of details one is able to distinguish.</p>
-<p><img alt="moire" src="../../../assets/images/large_systems/moire.png" /></p>
-<p>Below, you can find a script used to configure the KITE model for twisted bilayer graphene.
-The lattice of twisted bilayer graphene (especially at low rotation angles) has a much more complex unit cell compared to common Bernal-stacked bilayer graphene, where for an arbitrary twist angle, one does not have access to all relevant neighboring sites using a small set of connecting vectors.
-A more advanced algorithm is needed for finding the unit cell connections <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.
-In this example, we use a pre-defined lattice object that is loaded with a simple command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    <span class="c1"># define the angle</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">angle</span> <span class="o">=</span> <span class="mf">21.787</span> <span class="c1"># or 13.174, 7.341, 2.005</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># define the name of the pb.Lattice object</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;lattice_tblg_</span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="c1">#load the lattice</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">lattice</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<h3 id="the-single-particle-spectral-function">The single-particle spectral function<a class="headerlink" href="#the-single-particle-spectral-function" title="Permanent link">&para;</a></h3>
+<p>KITE can compute the momentum-resolved single-particle spectral function, <span class="arithmatex">\(A(\mathbf{k},E)\)</span>, the quantity of
+relevance to angle-resolved photoemission spectroscopy (ARPES). Physically, <span class="arithmatex">\(A(\mathbf{k},E)\)</span> measures the
+probability of finding an electron (or hole) with crystal momentum <span class="arithmatex">\(\mathbf{k}\)</span> at energy <span class="arithmatex">\(E\)</span>, and is formally
+the diagonal matrix element of the spectral operator in a Bloch-momentum basis,</p>
+<div class="arithmatex">\[
+    A(\mathbf{k},E) = \langle \mathbf{k}|\, \delta(E-\hat{H}) \,|\mathbf{k}\rangle .
+\]</div>
+<p>For a non-interacting, disorder-free crystal this reduces to a sum of delta functions at the band
+energies <span class="arithmatex">\(E_n(\mathbf{k})\)</span>; disorder and finite lifetimes broaden these into finite-width peaks.</p>
+<h4 id="how-kite-computes-it">How KITE computes it<a class="headerlink" href="#how-kite-computes-it" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(A(\mathbf{k},E)\)</span> is obtained with the same Chebyshev/KPM machinery described in
+<a href="../../../background/spectral/">Background: Spectral Methods</a>, except that the initial state fed into the
+recursion is a normalized Bloch-like plane wave rather than a random vector (as for a full trace) or a
+single real-space site (as for the LDOS):</p>
+<div class="arithmatex">\[
+    |\mathbf{k}\rangle = \frac{1}{\sqrt{N}}\sum_{\mathbf{r},\alpha} w_\alpha\, e^{\,i\,\mathbf{k}\cdot(\mathbf{r}+\boldsymbol{\tau}_\alpha)}\,|\mathbf{r},\alpha\rangle,
+\]</div>
+<p>where <span class="arithmatex">\(\mathbf{r}\)</span> runs over unit cells, <span class="arithmatex">\(\alpha\)</span> runs over orbitals within the unit cell (at position
+<span class="arithmatex">\(\boldsymbol{\tau}_\alpha\)</span>), and <span class="arithmatex">\(w_\alpha\)</span> is a user-supplied per-orbital weight. This is why ARPES is
+classified, alongside the LDOS, as a "diagonal matrix element" calculation in <a href="../../optimization/">Section 0</a>
+rather than a full-trace one: <code class="highlight"><span class="n">num_random</span></code> plays no role, and the target function is evaluated at
+one specific <span class="arithmatex">\(\mathbf{k}\)</span>-point at a time.</p>
+<h3 id="what-each-part-of-the-workflow-does">What each part of the workflow does<a class="headerlink" href="#what-each-part-of-the-workflow-does" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>The Python interface</strong> (<a href="../../../api/kite/#calculation-arpes"><code class="highlight"><span class="n">calculation</span><span class="o">.</span><span class="n">arpes</span><span class="p">()</span></code></a>) specifies the <span class="arithmatex">\(\mathbf{k}\)</span>-path,
+  per-orbital weights <span class="arithmatex">\(w_\alpha\)</span>, and the number of Chebyshev moments, and writes them into the HDF5 file.</li>
+<li><strong>KITEx</strong> reads that file, builds the plane-wave state <span class="arithmatex">\(|\mathbf{k}\rangle\)</span> for each requested
+  <span class="arithmatex">\(\mathbf{k}\)</span>-point, and computes the Chebyshev moments of <span class="arithmatex">\(A(\mathbf{k},E)\)</span>, writing them back into the
+  same file.</li>
+<li><strong>KITE-tools</strong> (<code class="highlight">--ARPES</code>) reconstructs <span class="arithmatex">\(A(\mathbf{k},E)\)</span> from those moments over a chosen energy
+  window and kernel, and optionally applies a simplified photoemission matrix-element weighting based on
+  the incident light's wave vector and frequency (<code class="highlight">-V</code>, <code class="highlight">-O</code>) and on temperature/Fermi energy
+  (<code class="highlight">-T</code>, <code class="highlight">-F</code>). Passing <code class="highlight">-S</code> skips that weighting and outputs the bare spectral
+  function instead — see the <a href="../../../api/kite-tools/">post-processing documentation</a> for the full flag reference.</li>
+</ul>
+<h3 id="defining-the-k-path">Defining the k-path<a class="headerlink" href="#defining-the-k-path" title="Permanent link">&para;</a></h3>
+<p>The <code class="highlight"><span class="n">k_vector</span></code> list is built with <strong>Pybinding's</strong> <code class="highlight"><span class="n">pb</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">make_path</span><span class="p">()</span></code>, using
+Cartesian (physical-unit) k-space coordinates — the same units as <code class="highlight"><span class="n">lattice</span><span class="o">.</span><span class="n">reciprocal_vectors</span><span class="p">()</span></code>.
+KITE converts these internally into fractional reciprocal-lattice coordinates for storage and internal use;
+this conversion is automatic and should not be done by hand, and the k-points reported in KITE-tools'
+output file are converted back to the same Cartesian units that were used as input.</p>
+<p>A robust, orientation-independent way to obtain high-symmetry points is to read them directly off
+<code class="highlight"><span class="n">lattice</span><span class="o">.</span><span class="n">brillouin_zone</span><span class="p">()</span></code>, which computes the actual Brillouin zone polygon for whatever lattice
+vectors were used, rather than reusing a formula (e.g. <code class="highlight"><span class="n">K</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">-</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span></code>) derived for a specific
+lattice orientation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">bz</span> <span class="o">=</span> <span class="n">lattice</span><span class="o">.</span><span class="n">brillouin_zone</span><span class="p">()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">K</span>  <span class="o">=</span> <span class="n">bz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">M</span>  <span class="o">=</span> <span class="p">(</span><span class="n">bz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">bz</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
 </code></pre></div>
-<p>Now, you can continue with specifying the other configuration settings as explained in <a href="../../">Getting Started</a>.</p>
-<p>The full script can be downloaded <a href="https://gist.github.com/quantum-kite/eeb25b4f3bd4756763259764ff67d87b">here</a>; see also the <a href="https://github.com/quantum-kite/kite/tree/b2b4f4d7a6ac7c912cd7fd5f23f050ec5bd3492c/examples/paper">KITE paper examples' folder</a>.</p>
+<p>For lattices whose electronic structure has only 3-fold (rather than full 6-fold) rotational symmetry —
+such as monolayer TMDs, where the d-orbital hopping physics reduces the symmetry despite the underlying
+triangular Bravais lattice being 6-fold symmetric — adjacent corners of the Brillouin zone correspond to
+the two inequivalent valleys K and K′. A path intended to compare both valleys should include both, e.g.
+<code class="highlight"><span class="n">bz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code> and <code class="highlight"><span class="n">bz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code>.</p>
+<h3 id="the-weight-parameter">The <code>weight</code> parameter<a class="headerlink" href="#the-weight-parameter" title="Permanent link">&para;</a></h3>
+<p><a href="../../../api/kite/#calculation-arpes"><code class="highlight"><span class="n">weight</span></code></a> assigns one value per <strong>orbital</strong> (not per named sublattice — for a
+lattice with several single-orbital sublattices these coincide, but not in general), and can be complex.
+Complex weights are useful for projecting onto specific orbital combinations — for example,
+<span class="arithmatex">\(d_{xy} \pm i\, d_{x^2-y^2}\)</span> combinations correspond to states of definite orbital angular momentum. The
+length of <code class="highlight"><span class="n">weight</span></code> must equal the total number of orbitals in the lattice.</p>
+<h3 id="worked-example-monolayer-mos2">Worked example: monolayer MoS₂<a class="headerlink" href="#worked-example-monolayer-mos2" title="Permanent link">&para;</a></h3>
+<p>The example below computes <span class="arithmatex">\(A(\mathbf{k},E)\)</span> along <span class="arithmatex">\(K \to \Gamma \to K'\)</span> for a monolayer MoS₂, using the
+nearest-neighbor 3-band tight-binding model (three <span class="arithmatex">\(d\)</span>-orbitals per metal site: <span class="arithmatex">\(d_{z^2}\)</span>, <span class="arithmatex">\(d_{xy}\)</span>,
+<span class="arithmatex">\(d_{x^2-y^2}\)</span>) of Liu <em>et al.</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> The full script is available
+<a href="https://github.com/tgrappoport/kite/blob/master/examples/arpes_tmd.py">here</a>.</p>
+<h4 id="lattice">Lattice<a class="headerlink" href="#lattice" title="Permanent link">&para;</a></h4>
+<p>Each of the three <span class="arithmatex">\(d\)</span>-orbitals is added as its own sublattice, all at the same position within the unit
+cell, connected by explicit per-orbital-pair hoppings built from the tabulated tight-binding parameters:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pybinding</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pb</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># [a, z_XX, e1, e2, t0, t1, t2, t11, t12, t22, lambda_soc], Liu et al., Phys. Rev. B 88, 085433 (2013)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">a</span><span class="p">,</span> <span class="n">z_XX</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t11</span><span class="p">,</span> <span class="n">t12</span><span class="p">,</span> <span class="n">t22</span><span class="p">,</span> <span class="n">lambda_soc</span> <span class="o">=</span> \
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="p">[</span><span class="mf">3.190</span><span class="p">,</span> <span class="mf">3.130</span><span class="p">,</span> <span class="mf">1.046</span><span class="p">,</span> <span class="mf">2.104</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.184</span><span class="p">,</span> <span class="mf">0.401</span><span class="p">,</span> <span class="mf">0.507</span><span class="p">,</span> <span class="mf">0.218</span><span class="p">,</span> <span class="mf">0.338</span><span class="p">,</span> <span class="mf">0.057</span><span class="p">,</span> <span class="mf">0.073</span><span class="p">]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">lat</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">Lattice</span><span class="p">(</span><span class="n">a1</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">a2</span><span class="o">=</span><span class="p">[</span><span class="n">a</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">subs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mo_0&quot;</span><span class="p">,</span> <span class="s2">&quot;Mo_1&quot;</span><span class="p">,</span> <span class="s2">&quot;Mo_2&quot;</span><span class="p">]</span>  <span class="c1"># dz2, dxy, dx2-y2</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">lat</span><span class="o">.</span><span class="n">add_sublattices</span><span class="p">(</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">e1</span><span class="p">),</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">e2</span><span class="p">),</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">e2</span><span class="p">),</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1"># Nearest-neighbor hopping matrices (one per lattice direction) built from the</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="c1"># tabulated parameters, then unpacked into individual scalar hoppings between</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="c1"># the three sublattices -- see the full script for _hopping_matrices().</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">vector_1N</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="k">for</span> <span class="n">direction</span><span class="p">,</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vector_1N</span><span class="p">,</span> <span class="n">hopping_matrices</span><span class="p">):</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>                <span class="n">lat</span><span class="o">.</span><span class="n">add_hoppings</span><span class="p">((</span><span class="n">direction</span><span class="p">,</span> <span class="n">subs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">subs</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="settings-and-calculation">Settings and calculation<a class="headerlink" href="#settings-and-calculation" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Gamma</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">K</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">a</span><span class="p">),</span> <span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Kprime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">a</span><span class="p">),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))])</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">k_path</span> <span class="o">=</span> <span class="n">pb</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">make_path</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">Gamma</span><span class="p">,</span> <span class="n">Kprime</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">kite</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">divisions</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">length</span><span class="o">=</span><span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">boundaries</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;periodic&quot;</span><span class="p">,</span> <span class="s2">&quot;periodic&quot;</span><span class="p">],</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">is_complex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">precision</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">spectrum_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">calculation</span> <span class="o">=</span> <span class="n">kite</span><span class="o">.</span><span class="n">Calculation</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">calculation</span><span class="o">.</span><span class="n">arpes</span><span class="p">(</span><span class="n">k_vector</span><span class="o">=</span><span class="n">k_path</span><span class="p">,</span> <span class="n">num_moments</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">num_disorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="post-processing">Post-processing<a class="headerlink" href="#post-processing" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./build/KITE-tools<span class="w"> </span>arpes_tmd-output.h5<span class="w"> </span>--ARPES<span class="w"> </span>-K<span class="w"> </span>jackson<span class="w"> </span>-S
+</code></pre></div>
+<p>This computes the bare spectral function (<code class="highlight">-S</code>) with the Jackson kernel.</p>
+<h4 id="result">Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h4>
+<div>
+  <figure>
+    <img src="../../../assets/images/spectral_function/mos2_bands.png" style="width: 40em;" />
+    <figcaption>Spectral function A(k,E) of monolayer MoS<sub>2</sub> along K→Γ→K', computed with the
+    3-band model above (128×128 unit cells, 512 Chebyshev moments, Jackson kernel, bare spectral function).</figcaption>
+  </figure>
+</div>
+
+<p>The valence-band maximum sits at K (and, equivalently, K′), separated by a gap from the conduction bands,
+consistent with MoS₂'s semiconducting character in this simplified nearest-neighbor model.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Get more familiar with KITE: reproduce this figure, then try adding a real photoemission matrix element
+(drop <code class="highlight">-S</code> and supply <code class="highlight">-V</code>/<code class="highlight">-O</code>), or compare the two orbital-angular-momentum
+weightings <code class="highlight"><span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="n">j</span><span class="p">]</span></code> and <code class="highlight"><span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">]</span></code> to see how the spectral weight
+contrasts between the K and K′ valleys.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>A. Ferreira and E. Mucciolo, <a href="https://link.aps.org/doi/10.1103/PhysRevLett.115.106601">Phys. Rev. Lett. <strong>115</strong>, 106601 (2015)</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>P. Moon and M. Koshino, <a href="https://link.aps.org/doi/10.1103/PhysRevB.85.195458">Phys. Rev. B <strong>85</strong>, 195458 (2012)</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>S. M. João et al, <a href="https://royalsocietypublishing.org/doi/full/10.1098/rsos.191809">R. Soc. open sci. 7, 191809 (2020)</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>G.-B. Liu, W.-Y. Shan, Y. Yao, W. Yao, and D. Xiao, <a href="https://doi.org/10.1103/PhysRevB.88.085433">Phys. Rev. B 88, 085433 (2013)</a>; erratum <a href="https://doi.org/10.1103/PhysRevB.89.039901">Phys. Rev. B 89, 039901 (2014)</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -2278,8 +2483,8 @@ In this example, we use a pre-defined lattice object that is loaded with a simpl
         <!-- Link to previous page -->
         
         
-        <a href="../additional_examples/" class="md-footer__link md-footer__link--prev"
-            aria-label="Previous: About Examples-dir" rel="prev">
+        <a href="../optical_conductivity/" class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: Optical Conductivity" rel="prev">
             <div class="md-footer__button md-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
@@ -2288,7 +2493,7 @@ In this example, we use a pre-defined lattice object that is loaded with a simpl
                     <span class="md-footer__direction">
                         Previous
                     </span>
-                    About Examples-dir
+                    Optical Conductivity
                 </div>
             </div>
         </a>
@@ -2297,14 +2502,14 @@ In this example, we use a pre-defined lattice object that is loaded with a simpl
         <!-- Link to next page -->
         
         
-        <a href="../custom_local_potential/" class="md-footer__link md-footer__link--next"
-            aria-label="Next: Custom Local Potential" rel="next">
+        <a href="../../more_examples/additional_examples/" class="md-footer__link md-footer__link--next"
+            aria-label="Next: About Examples-dir" rel="next">
             <div class="md-footer__title">
                 <div class="md-ellipsis">
                     <span class="md-footer__direction">
                         Next
                     </span>
-                    Custom Local Potential
+                    About Examples-dir
                 </div>
             </div>
             <div class="md-footer__button md-icon">
