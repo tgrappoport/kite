@@ -28,12 +28,18 @@ MESSAGE(STATUS "Compiler:  ${CMAKE_CXX_COMPILER}")
 include_directories(~/include/)
 
 
-find_package(Eigen3)
-if(${EIGEN3_FOUND})
-  include_directories(${EIGEN3_INCLUDE_DIR})
+option(USE_SYSTEM_EIGEN "Use the system-installed Eigen3 instead of the bundled copy in third_party/eigen3" OFF)
+if(USE_SYSTEM_EIGEN)
+  find_package(Eigen3)
+  if(${EIGEN3_FOUND})
+    include_directories(${EIGEN3_INCLUDE_DIR})
+  else()
+    include_directories(~/include/eigen3)
+    MESSAGE(STATUS "Couldn't find Eigen3. Looking in ~/include")
+  endif()
 else()
-  include_directories(~/include/eigen3)
-  MESSAGE(STATUS "Couldn't find Eigen3. Looking in ~/include")
+  MESSAGE(STATUS "Using bundled Eigen3 from third_party/eigen3 (pass -DUSE_SYSTEM_EIGEN=ON to use the system install instead)")
+  include_directories(${PROJECT_SOURCE_DIR}/../third_party/eigen3)
 endif()
 
 

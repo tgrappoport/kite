@@ -5,8 +5,8 @@ WAVEPACKET=0
 mkdir -p build
 mkdir -p tools/build
 
-# Common locations for the eigen headers. Edit this line if eigen is not in any of these places
-eigen="-I/opt/local/include/eigen3 -I$HOME/include/eigen3 -I/usr/include/eigen3"
+# Eigen ships with KITE under third_party/eigen3; these are fallbacks in case that's missing
+eigen="-I../third_party/eigen3 -I/opt/local/include/eigen3 -I$HOME/include/eigen3 -I/usr/include/eigen3"
 
 # Library and header locations
 libraries="-L$HOME/lib -L/opt/local/lib  -lhdf5_hl_cpp -lhdf5_cpp -lhdf5_hl -lhdf5"
