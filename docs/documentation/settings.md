@@ -30,6 +30,11 @@ Below, we explain each of the arguments in the [`#!python kite.Configuration`][c
     
         The product `#!python nx * ny (* nz)` equals the number of threads used by KITEx and thus **must not exceed** the number of **available cores** in the compute node.
 
+    !!! Tip
+
+        For the implementation details behind domain decomposition (thread model, ghost regions, and how
+        `#!python divisions` trades memory against parallelism), see [Performance & Memory Tuning][performance].
+
 ## [Length][configuration-length]
 : The [`#!python length`][configuration-length] is an integer number of unit cells along the direction of lattice vectors (for example, `#!python lx, ly, lz = 256, 256, 256`). 
   The lateral size of the decomposed parts are given by `#!python lx/nx`, `#!python ly/ny` and  `#!python lz/nz`.
@@ -120,6 +125,7 @@ Below, we explain each of the arguments in the [`#!python kite.Configuration`][c
 [lattice]: https://docs.pybinding.site/en/stable/_api/pybinding.Lattice.html
 [documentation]: ../documentation/optimization.md
 [tightbinding]: ../documentation/tight_binding.md
+[performance]: performance.md
 
 [lattice-tutorial]: tb_model.md
 

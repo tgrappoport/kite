@@ -28,6 +28,7 @@ nav:
     - 6. Disorder: 'documentation/disorder.md'
     - 7. Magnetic Fields: 'documentation/magnetic.md'
     - 8. Editing an HDF5 file: 'documentation/editing_hdf_files.md'
+    - 9. Performance & Memory Tuning: 'documentation/performance.md'
     - In Depth Examples:
       - About the examples: 'documentation/examples/index.md'
       - Graphene: 'documentation/examples/graphene.md'

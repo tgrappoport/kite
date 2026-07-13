@@ -66,15 +66,18 @@ Each function to compute is specified after the double hyphens — and the param
 | `#!bash --CondOpt`  | `#!bash -F`  | Fermi energy                                                                                        |
 | `#!bash --CondOpt`  | `#!bash -S`  | Broadening parameter of the Green’s function                                                        |
 | `#!bash --CondOpt`  | `#!bash -O`  | min max num Range of frequencies                                                                    |
+| `#!bash --CondOpt`  | `#!bash -C`  | `num_d num_g` Recompute the conductivity using only `num_d` Dirac-delta and `num_g` Green's-function moment blocks, for convergence testing (see [Ground Rules][ground_rules]) |
+| `#!bash --CondOpt`  | `#!bash -X`  | Exclusive. Only calculate this quantity                                                             |
 | `#!bash --CondOpt2` | `#!bash -N`  | Name of the output file                                                                             |
 | `#!bash --CondOpt2` | `#!bash -E`  | Number of energy points used in the integration                                                     |
 | `#!bash --CondOpt2` | `#!bash -M`  | Number of Chebyshev moments                                                                         |
-| `#!bash --CondOpt2` | `#!bash -R`  | Ratio of the second frequency relative to the first one                                             |
+| `#!bash --CondOpt2` | `#!bash -R`  | Ratio $r$ of the second frequency to the first one, $\omega_2=r\,\omega_1$. Default `#!bash 1.0` (second-harmonic/sum-frequency generation). **Setting `#!bash -R -1` switches to the degenerate $\omega_2=-\omega_1$ case, i.e. the DC photocurrent/shift-current (photoconductivity) response**, using a different internal calculation path (`calculate_photo()` instead of `calculate_general()`) |
 | `#!bash --CondOpt2` | `#!bash -P`  | If set to 1: writes all the different contributions to separate files                               |
 | `#!bash --CondOpt2` | `#!bash -T`  | Temperature                                                                                         |
 | `#!bash --CondOpt2` | `#!bash -F`  | Fermi energy                                                                                        |
 | `#!bash --CondOpt2` | `#!bash -S`  | Broadening parameter of the Green’s function                                                        |
 | `#!bash --CondOpt2` | `#!bash -O`  | min max num Range of frequencies                                                                    |
+| `#!bash --CondOpt2` | `#!bash -X`  | Exclusive. Only calculate this quantity                                                             |
 
 All the values specified in this way are assumed to be in the same units as the ones used in the configuration file. All quantities are double-precision numbers except for the ones representing integers, such as the number of points. This list may be found in KITE-tools, run `KITE-tools --help`:
 
@@ -144,7 +147,18 @@ Calculates the DC conductivity using a temperature of 0.4 and 500 equidistant Fe
 
 Calculates the DC conductivity using 30 equidistant Fermi energies in the range `#!python [-1.2, 2.5]` and the optical conductivity using a temperature of 93.
 
+### Example 5
+
+``` bash
+./KITE-tools h5_file.h5 --CondOpt2 -R -1 -P 1 -O 0 2 200
+```
+
+Computes the **DC photocurrent / shift-current response** (the degenerate $\omega_2=-\omega_1$ limit of the
+second-order optical conductivity, selected via `#!bash -R -1`) over the frequency range `#!python [0, 2]`
+with 200 points, writing each Gamma-contribution to its own file (`#!bash -P 1`).
+
 @@include[kite_tools_readme.md](kite_tools_readme.md)
 
 [resources]: ../background/index.md
+[ground_rules]: ../documentation/optimization.md
  

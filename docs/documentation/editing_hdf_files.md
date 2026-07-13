@@ -11,6 +11,80 @@ Whereas relational databases support tables, HDF5 supports n-dimensional dataset
 Relational databases offer excellent support for queries based on field matching,
 but are not well-suited for sequentially processing all records in the database or for selecting a subset of the data based on coordinate-style lookup.
 
+## The structure of KITE's HDF5 file
+
+The same `.h5` file is passed through KITE's whole pipeline: the Python interface ([`#!python kite.Configuration`][configuration]/[`#!python kite.Calculation`][calculation], via `#!python kite.py`) creates it, [KITEx][kitex] reads the lattice/calculation settings from it and writes the raw Chebyshev moments back into it, and [KITE-tools][kitetools] opens it read-only to reconstruct physical quantities. Knowing the exact layout lets you script around KITE-tools entirely if you want to.
+
+There is no top-level wrapper group — everything hangs directly off the file root `#!python /`:
+
+```text
+/
+├── IS_COMPLEX                 (u4)     0/1, from is_complex
+├── PRECISION                  (u4)     0=float, 1=double, 2=long double
+├── L                          (u4[dim])   lattice repetitions per direction
+├── DIM                        (u4)     lattice dimensionality (1/2/3)
+├── Boundaries                 (u4[dim])   0=open, 1=periodic/fixed-twist, 2=random-twist
+├── BoundaryTwists              (f64[dim])  fixed twist-angle phases
+├── Divisions                  (u4[dim])   domain decomposition, i.e. divisions=[nx,ny,(nz)]
+├── LattVectors                 (f64[dim,dim])
+├── OrbPositions                (f64[Norb,dim])
+├── NOrbitals                  (u4)     total number of orbitals
+├── EnergyScale                 (f64)    Chebyshev rescaling factor δε
+├── EnergyShift                 (f64)    Chebyshev rescaling shift ε₀
+├── Hamiltonian/
+│   ├── NHoppings               (u4[Norb])
+│   ├── d, Hoppings                       hopping distances/values (already rescaled by EnergyScale)
+│   ├── CustomLocalEnergy, PrintCustomLocalEnergy
+│   ├── MagneticFieldMul        (u4)     present only if a magnetic field/flux was set
+│   ├── Disorder/                        Anderson-type onsite disorder, if any
+│   │   ├── OnsiteDisorderModelType, OrbitalNum
+│   │   └── OnsiteDisorderMeanValue, OnsiteDisorderMeanStdv
+│   ├── Vacancy/Type{N}/                 one subgroup per vacancy type
+│   │   └── Orbitals, FixPosition, Concentration, NumOrbitals
+│   └── StructuralDisorder/Type{N}/      one subgroup per bond/structural-disorder type
+│       ├── FixPosition, Concentration
+│       ├── NumBondDisorder, NumOnsiteDisorder
+│       ├── NodeFrom, NodeTo, NodeOnsite, NumNodes, NodePosition
+│       └── U0, Hopping
+└── Calculation/                         only the sub-groups you actually requested exist
+    ├── dos/                    NumMoments, NumRandoms, NumPoints, NumDisorder, MU (written by KITEx)
+    ├── ldos/                   NumMoments, Energy, Orbitals, FixPosition, NumDisorder, lMU
+    ├── arpes/                  NumMoments, k_vector, NumDisorder, OrbitalWeights, kMU
+    ├── gaussian_wave_packet/   NumMoments, NumPoints, NumDisorder, mean_value, ProbingPoint,
+    │                           width, spinor, k_vector, timestep, Sx, Sy, Sz, Id
+    ├── conductivity_dc/        NumMoments, NumRandoms, NumPoints, NumDisorder, Temperature,
+    │                           Direction, Gamma<dir>   (dir = 2-letter code, e.g. "xx", "xy")
+    ├── conductivity_optical/   same fields as conductivity_dc, plus Gamma<dir> and Lambda<dir>
+    ├── conductivity_optical_nonlinear/  adds `Special` (ratio/photocurrent flag),
+    │                           Gamma0<dir>, Gamma1<dir>, Gamma2<dir>, Gamma3<dir>  (dir = 3-letter code)
+    └── singleshot_conductivity_dc/  NumMoments, NumRandoms, NumDisorder, Energy, Gamma,
+                                Direction, PreserveDisorder, SingleShot (the actual conductivity values)
+```
+
+Everything here is a **dataset** — `kite.py` never uses HDF5 attributes, so there is nothing to find under `.attrs` on any object.
+
+!!! Warning "Complex numbers are stored as compound types, not native complex"
+
+    Datasets holding complex Chebyshev moments (`MU`, `Gamma<dir>`, `lMU`, `kMU`, ...) are **not** written
+    as HDF5 native complex data. [KITEx][kitex] (`Src/Tools/myHDF5.cpp`) reads/writes them as an HDF5
+    *compound type* with two members, `#!python "r"` and `#!python "i"`, each of the same float type as
+    `PRECISION` selects. If you write such a dataset from Python with plain `#!python h5py`, don't rely on
+    h5py's native complex support — build the matching compound dtype explicitly:
+
+    ``` python linenums="1"
+    import numpy as np
+    import h5py
+
+    # matches PRECISION=1 (double) — use np.float32/np.float128 for the other precisions
+    complex_t = np.dtype([('r', np.float64), ('i', np.float64)])
+
+    f = h5py.File('archive.h5', 'r+')
+    data = np.zeros(100, dtype=complex_t)
+    data['r'] = my_real_part
+    data['i'] = my_imag_part
+    f['Calculation/conductivity_dc'].create_dataset('Gammaxx', data=data)
+    ```
+
 ## Editing the file
 
 Leveraging its underlying Chebyshev approach, KITE can easily recalculate a physical quantity for different choices of parameters at the post-processing level, i.e. without the need for recalculating Chebyshev moments.
@@ -63,3 +137,5 @@ print(np.allclose(f1['Calculation/conductivity_dc/Temperature'].value, new_value
 
 [kitex]: ../api/kitex.md
 [kitetools]: ../api/kite-tools.md
+[configuration]: ../api/kite.md#configuration
+[calculation]: calculation.md

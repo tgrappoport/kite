@@ -49,7 +49,7 @@ The same strategy can be used to calculate the optical conductivity for differen
 
 !!! Info
 
-    For a more detailed list of possible commands/options for [KITE-tools][kitetools], we strongly recommend you look at the [API].
+    For a more detailed list of possible commands/options for [KITE-tools][kitetools], we strongly recommend you look at the [API]. This includes some less obvious flags worth knowing about: `#!bash -X` (exclusive — compute only that quantity, skip the rest), `#!bash -C num_d num_g` for `--CondOpt` (recompute using a truncated number of moment blocks, useful for convergence testing), and `#!bash -R -1` for `--CondOpt2`, which switches the second-order optical conductivity calculation to the degenerate $\omega_2=-\omega_1$ case — i.e. the DC photocurrent/shift-current response — instead of the general two-frequency case.
 
 ## Other cases: bespoke post-processing
 
