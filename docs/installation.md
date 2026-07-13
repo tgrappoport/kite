@@ -267,13 +267,6 @@ you need a different Eigen3 version for some reason, pass `#!bash -DUSE_SYSTEM_E
 (`#!bash cmake -DUSE_SYSTEM_EIGEN=ON ..`); this falls back to CMake's `#!bash find_package(Eigen3)`, in which
 case CMake must be able to locate your own [Eigen3][eigen3] install.
 
-### 5.2 Apple Silicon (ARM) architecture 
-
-On machines from the *Apple Silicon lineup* (M1, M1Max, etc.) you may have to use the *Rosetta* translator if experiencing
-architecture compatibility issues. *Rosetta* simulates an *Intel-x64* system and translates existing software for use with *Apple Silicon*. 
-To load *Rosetta*, run `#!bash arch -x86_64 zsh` when starting a **new terminal**.
-
-
 [repository]: https://github.com/quantum-kite/kite
 [eigen3]: https://eigen.tuxfamily.org/
 [cmake]: https://cmake.org/

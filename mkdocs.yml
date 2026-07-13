@@ -29,6 +29,7 @@ nav:
     - 7. Magnetic Fields: 'documentation/magnetic.md'
     - 8. Editing an HDF5 file: 'documentation/editing_hdf_files.md'
     - 9. Performance & Memory Tuning: 'documentation/performance.md'
+    - 10. Code Structure & Compilation Options: 'documentation/code_structure.md'
     - In Depth Examples:
       - About the examples: 'documentation/examples/index.md'
       - Graphene: 'documentation/examples/graphene.md'

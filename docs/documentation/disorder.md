@@ -160,6 +160,12 @@ connect sites that belong to either the same unit cell or neighboring cells that
 as they are an inherent part of the lattice model. To relax this constraint, the users must adjust 
 the NGHOSTS parameter in `#!bash kite/Src/Generic.hpp` and recompile [KITEx][kitex], otherwise an error message is output and the KITE program exits. 
 
+!!! Info
+
+    See [Code Structure & Compilation Options][code_structure] for why `NGHOSTS` is exactly 2 by default
+    (it's the ghost-halo depth of KITE's domain decomposition, which must be at least as deep as the
+    longest-range hopping/disorder pattern in the model) and how it relates to `TILE` and memory usage.
+
 Let us begin by defining the sublattices that will constitute the disorder.
 In this case we are not restricted to a single unit cell:
 
@@ -327,6 +333,7 @@ with the resulting density of states:
 
 [kite-script]: ../api/kite.md
 [KITEx]: ../api/kitex.md
+[code_structure]: code_structure.md#spatial-memory-domain-decomposition-and-ghost-regions
 
 [comment]: <> (Class Disorder)
 [disorder]: ../api/kite.md#disorder

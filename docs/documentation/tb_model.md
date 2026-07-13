@@ -10,6 +10,14 @@ with up to second-nearest neighbors). To relax this constraint and thus be able 
 
 !!! Info
 
+    `NGHOSTS` is the depth of the "ghost" halo KITEx adds around each thread's sub-domain in its
+    [domain decomposition][code_structure] — it has to be at least as deep as the longest-range hopping
+    in your model, which is why the default of 2 caps interconnectivity at 2 lattice spacings. See
+    [Code Structure & Compilation Options][code_structure] for how this connects to domain decomposition,
+    `TILE`, and memory usage.
+
+!!! Info
+
     If you are familiar with [Pybinding], you can go directly to the next tutorial page.
 
 !!! Note
@@ -244,3 +252,4 @@ For more info about [Pybinding]'s capabilities, look at its [tutorial][tutorial-
 
 [kitepython]: ../api/kite.md
 [kitex]: ../api/kitex.md
+[code_structure]: code_structure.md#spatial-memory-domain-decomposition-and-ghost-regions
