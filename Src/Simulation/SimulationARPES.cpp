@@ -179,21 +179,21 @@ void Simulation<T, DIM>::calc_ARPES(){
       k_vectors = Eigen::Array<double,-1, -1>::Zero(dim_k[1], dim_k[0]);
       weight    = Eigen::Matrix<    T,-1,  1>::Zero(dim_w[1], dim_w[0]);
 
-      // The weights have to be read in doubles before being cast into type T
-      Eigen::Matrix<double, -1, 1> weight_test;
-      weight_test = Eigen::Matrix<double, -1, 1>::Zero(r.Orb, 1);
-      
       get_hdf5    <int>(&NumDisorder,       file, (char *) "/Calculation/arpes/NumDisorder");
       get_hdf5    <int>(&NumMoments,        file, (char *) "/Calculation/arpes/NumMoments" );
-      get_hdf5 <double>(weight_test.data(), file, (char *) "/Calculation/arpes/OrbitalWeights");
+      // Read directly as T: for a complex simulation (is_complex=True) this reads the
+      // full complex weight (matching the HDF5 compound "r"/"i" layout that kite.py
+      // writes when a complex weight is supplied); for a real simulation it reads a
+      // plain double, exactly as before. Previously this was hardcoded to `double`,
+      // which silently discarded the imaginary part of any complex weight -- orbital
+      // weights encoding angular momentum (e.g. d_xy +/- i*d_(x^2-y^2) combinations)
+      // require genuinely complex weights, so this needs to match T.
+      get_hdf5    <T>(weight.data(),         file, (char *) "/Calculation/arpes/OrbitalWeights");
       get_hdf5 <double>(k_vectors.data(),   file, (char *) "/Calculation/arpes/k_vector");
 
-      file->close();  
+      file->close();
       delete file;
 
-      for(unsigned i = 0; i < r.Orb; i++)
-        weight(i) = T(weight_test(i));
-      
       //std::cout << "weights: " << weight << "\n";
 
 }

@@ -384,7 +384,14 @@ void arpes<U, DIM>::calculate(){
   std::ofstream myfile;
   myfile.open(filename + ".dat");
   myfile << "k-vectors:\n";
-  for(unsigned int i = 0; i < NumVectors; i++)  myfile << arpes_k_vectors(0,i) << " " << arpes_k_vectors(1,i) << "\n";
+  // arpes_k_vectors is stored in fractional reciprocal-lattice coordinates (the same
+  // representation kite.py converts the user's Cartesian k_vector into before writing
+  // it to the HDF5 file: k_frac = k_cart . vectors^T / (2*pi)). Convert back to Cartesian
+  // here before writing, so the k-points reported in the output file match what the user
+  // actually specified, rather than silently reporting a different representation.
+  Eigen::Matrix<double, -1, -1> arpes_k_vectors_cartesian =
+      2.0 * M_PI * systemInfo->vectors.matrix().inverse().transpose() * arpes_k_vectors;
+  for(unsigned int i = 0; i < NumVectors; i++)  myfile << arpes_k_vectors_cartesian(0,i) << " " << arpes_k_vectors_cartesian(1,i) << "\n";
   myfile << "Energies:\n";
   myfile << energies*scale + shifts << "\n";
   myfile << "ARPES:\n";
