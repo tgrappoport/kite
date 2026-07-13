@@ -36,6 +36,7 @@ nav:
       - Haldane: 'documentation/examples/haldane.md'
       - Phosphorene: 'documentation/examples/phosphorene.md'
       - Optical Conductivity: 'documentation/examples/optical_conductivity.md'
+      - Spectral Function (ARPES): 'documentation/examples/spectral_function.md'
     - KITE scripts v.1.1:
       - About Examples-dir: 'documentation/more_examples/additional_examples.md'
     - Advanced Examples:
